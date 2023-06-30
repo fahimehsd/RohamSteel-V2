@@ -29,6 +29,6 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "@grafbase/sdk": "~0.1.0"
+    "@grafbase/sdk": "^0.1.0"
   }
 }
