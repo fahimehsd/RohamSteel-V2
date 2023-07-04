@@ -18,7 +18,7 @@ const Header = () => {
 
   const [header, setHeader] = useState(false);
   const changeHeader = () => {
-    if (window.scrollY >= 90) {
+    if (window.scrollY >= 10) {
       setHeader(true);
     } else {
       setHeader(false);
@@ -28,7 +28,7 @@ const Header = () => {
   window.addEventListener("scroll", changeHeader);
 
   return header ? (
-    <header className="bg-slate-50 fixed">
+    <header className="bg-slate-50 fixed p-2 duration-300">
       <div className="flexBetween gap-2">
         <Image
           src={"/logo.png"}
@@ -53,7 +53,7 @@ const Header = () => {
       </div>
     </header>
   ) : (
-    <header className="flex flex-col gap-3">
+    <header className="flex flex-col gap-3 duration-300">
       <div
         className={`flexCenter bg-red-500 md:justify-between md:text-lg md:p-3 `}
       >
