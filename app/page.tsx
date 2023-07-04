@@ -1,5 +1,6 @@
 import About from "@/components/About";
 import Hero from "@/components/Hero";
+import More from "@/components/More";
 import News from "@/components/News";
 import React from "react";
 
@@ -11,6 +12,7 @@ const Home = () => {
         <About />
         <News />
         <div className="w-full h-10 my-10 bg-slate-200"></div>
+        <More />
       </main>
       <aside>برچسب های خبری</aside>
     </div>

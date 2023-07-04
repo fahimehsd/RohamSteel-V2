@@ -11,3 +11,9 @@ export interface ProductsState {
   image?: string;
   price: number;
 }
+export interface MoreState {
+  id: number;
+  title: string;
+  desc: string;
+  image?: string;
+}
