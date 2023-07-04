@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import "./globals.css";
 import { Scheherazade_New } from "next/font/google";
+import Footer from "@/components/Footer";
 
 const font = Scheherazade_New({
   subsets: ["arabic"],
@@ -21,7 +22,7 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
-        Footer
+        <Footer />
       </body>
     </html>
   );
