@@ -22,22 +22,17 @@ const Footer = () => {
       setProducts(res.data.products);
     });
   };
-
   useEffect(() => {
     getData();
   }, []);
 
-  console.log(products, news);
   return (
     <footer className="bg-slate-100 w-full h-full">
       {FooterLinks.map((item) => (
-        <Disclosure>
+        <Disclosure key={item.id}>
           {({ open }) => (
             <>
-              <Disclosure.Button
-                key={item.id}
-                className="flex w-full justify-between rounded-lg bg-transparent px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75"
-              >
+              <Disclosure.Button className="flex w-full justify-between rounded-lg bg-transparent px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75">
                 <span>{item.title}</span>
                 <MdKeyboardArrowDown
                   className={`${
@@ -82,7 +77,7 @@ const Footer = () => {
 
             <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
               {products.map((item) => (
-                <Link href={`/products/${item.id}`}>
+                <Link key={item.id} href={`/products/${item.id}`}>
                   <div key={item.id}>
                     <p className="text-gray-800">{item.name}</p>
                   </div>
@@ -106,7 +101,7 @@ const Footer = () => {
 
             <Disclosure.Panel className="flex flex-col gap-4 px-4 pt-4 pb-2 text-sm text-gray-500">
               {news.slice(-2).map((news) => (
-                <Link href={`/news/${news.id}`}>
+                <Link key={news.id} href={`/news/${news.id}`}>
                   <div key={news.id} className="flexCenter hover:text-red-500">
                     <img
                       src={news.image}
