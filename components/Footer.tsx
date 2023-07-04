@@ -8,14 +8,18 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import Image from "next/image";
 import Link from "next/link";
 import { AiFillGithub } from "react-icons/ai";
+import { NewsState, ProductsState } from "@/types";
 
 const Footer = () => {
-  const [news, setNews] = useState([]);
-  const [products, setProducts] = useState([]);
+  const [news, setNews] = useState<NewsState[]>([]);
+  const [products, setProducts] = useState<ProductsState[]>([]);
 
   const getData = () => {
     axios.get(BASE_URL).then((res) => {
-      setNews(res.data.news), setProducts(res.data.products);
+      setNews(res.data.news);
+    });
+    axios.get(BASE_URL).then((res) => {
+      setProducts(res.data.products);
     });
   };
 
@@ -23,8 +27,7 @@ const Footer = () => {
     getData();
   }, []);
 
-  const theLatestNews = news.slice(-2);
-
+  console.log(products, news);
   return (
     <footer className="bg-slate-100 w-full h-full">
       {FooterLinks.map((item) => (
@@ -102,7 +105,7 @@ const Footer = () => {
             </Disclosure.Button>
 
             <Disclosure.Panel className="flex flex-col gap-4 px-4 pt-4 pb-2 text-sm text-gray-500">
-              {theLatestNews.map((news) => (
+              {news.slice(-2).map((news) => (
                 <Link href={`/news/${news.id}`}>
                   <div key={news.id} className="flexCenter hover:text-red-500">
                     <img
